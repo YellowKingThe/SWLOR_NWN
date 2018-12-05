@@ -196,6 +196,13 @@ namespace SWLOR.Game.Server.Service
                     femaleLeftFoot = 208;
 
                     break;
+                    
+                case CustomRaceType.Zeltron:
+                    skinColor = 096;
+                    hairColor = 138;
+                    maleHead = 1;
+                    femaleHead = 1;
+                    break;
                 default:
                     {
                         _.BootPC(player, "You have selected an invalid race. This could be due to files in your override folder. Ensure these are removed from the folder and then try creating a new character. If you have any problems, visit our website at http://starwarsnwn.com");
