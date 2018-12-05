@@ -221,6 +221,7 @@ namespace SWLOR.Game.Server.Conversation
             int[] CyborgSkinColors = { 0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 17, 18, 19 };
             int[] CatharSkinColors = { 6, 7, 10, 11, 117, 118, 119, 130, 131 };
             int[] TrandoshanSkinColors = { 4, 5, 6, 18, 19, 34, 35, 36, 38, 39, 172 };
+            int[] ZeltronSkinColors = { 096, 104, 144, 145, 163 }
 
             CustomRaceType race = (CustomRaceType)GetPC().RacialType;
             int[] colorsToUse;
@@ -250,6 +251,9 @@ namespace SWLOR.Game.Server.Conversation
                     break;
                 case CustomRaceType.Trandoshan:
                     colorsToUse = TrandoshanSkinColors;
+                    break;
+                    case customRaceType.Zeltron
+                    colorsToUse = ZeltronSkinColors
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -362,6 +366,7 @@ namespace SWLOR.Game.Server.Conversation
             int[] MaleCatharHeads = { 26, 27, 28, 29, };
             int[] MaleTrandoshanHeads = { 2, 101, 111, 123, 124, 125, 143, 162 };
             int[] MaleWookieeHeads = {119, 192, 193};
+            int[] MaleZeltronHeads = { };
 
             int[] FemaleHumanHeads = { 1, 2, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 19, 20, 22, 23, 24, 25, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 39, 40, 42, 44, 45, 46, 48, 49, 100, 101, 102, 103, 104, 105, 106, 107, 108, 111, 112, 113, 114, 116, 117, 118, 121, 123, 124, 125, 127, 130, 132, 134, 136, 137, 138, 140, 141, 164, 167, 168, 171, 172, 173, 174, 175, 177, 178, 180, 181, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 199 };
             int[] FemaleBothanHeads = { 109, 162, };
@@ -372,6 +377,7 @@ namespace SWLOR.Game.Server.Conversation
             int[] FemaleCatharHeads = { 13, 14 };
             int[] FemaleTrandoshanHeads = { 135, 150, 157 };
             int[] FemaleWookieeHeads = {110, 185, 186, 192, 193, 195};
+            int[] FemaleZeltronHeads = { };
 
             CustomRaceType race = (CustomRaceType)GetPC().RacialType;
             int gender = GetPC().Gender;
@@ -410,6 +416,11 @@ namespace SWLOR.Game.Server.Conversation
                 case CustomRaceType.Wookiee:
                     headsToUse = gender == GENDER_MALE ? MaleWookieeHeads : FemaleWookieeHeads;
                     break;
+                case CustomRaceType.Zeltron:
+                    headsToUse = gender == GENDER_MALE ?
+                    MaleZeltronHeads.Concat(MaleHumanHeads).ToArray() :
+                    FemaleZeltronHeads.Concat(FemaleHumanHeads).ToArray();
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -435,6 +446,7 @@ namespace SWLOR.Game.Server.Conversation
             int[] CatharHairColors = { 0, 1, 2, 3, 4, 5, 6, 7, 116, 117 };
             int[] TrandoshanEyeColors = { }; // All
             int[] WookieeHairColors = {0, 1, 2, 3, 14, 49, 51};
+            int[] Zeltron HairColors = { 138, 139, 140, 141, 142, 144, 145, 146, 147, 148, 160, 161, 162, 163, 164 };
 
             CustomRaceType race = (CustomRaceType)GetPC().RacialType;
             int[] colorsToUse;
@@ -467,6 +479,9 @@ namespace SWLOR.Game.Server.Conversation
                     break;
                 case CustomRaceType.Wookiee:
                     colorsToUse = WookieeHairColors;
+                    break;
+                case CustomRaceType.Zeltron:
+                    colorsToUse = ZeltronHairColors;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
