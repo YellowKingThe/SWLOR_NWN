@@ -12,5 +12,6 @@
         Cyborg = 157,
         Cathar = 158,
         Trandoshan = 159
+        Zeltron = 160
     }
 }
